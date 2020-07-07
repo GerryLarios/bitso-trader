@@ -12,4 +12,3 @@ services:
       - ./.env
     depends_on:
       - database
-
