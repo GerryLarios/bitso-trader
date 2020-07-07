@@ -1,10 +1,10 @@
 import os
+import time
 import logging
 from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from schema import create_all_tables
-
 
 def connect():
     url = 'postgresql://{}:{}@{}:{}/{}'
@@ -19,7 +19,6 @@ def connect():
 Base = declarative_base()
 engine = connect()
 session = sessionmaker(bind=engine)()
-
 
 def database_is_empty():
     tables = inspect(engine).get_table_names()
